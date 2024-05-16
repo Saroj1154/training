@@ -7,7 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
-	Doctor doctor = (Doctor) session.getAttribute("doctor");
+	Doctor doctor = (Doctor) session.getAttribute("doctorObj");
 	Set<Patient> patientSet = DoctorPatientDAO.getPatientListByDoctor(doctor);
 	/* pageContext.setAttribute("patientSet",patientSet); */
 	
@@ -24,6 +24,7 @@
 			<th>Id</th>
 			<th>Name</th>
 			<th>Address</th>
+		<th>Doctor Name</th>
 		</thead>
 
 		<%
@@ -35,7 +36,7 @@
 				out.println("<td>" + p.getPatientId() + "</td>");
 				out.println("<td>" + p.getPatientName() + "</td>");
 				out.println("<td>" + p.getPatientAddress() + "</td>");
-
+				out.println("<td>" + doctor.getDoctorId()+" - "+doctor.getDoctorName() + "</td>");
 				out.println("<tr>");
 			}
 			

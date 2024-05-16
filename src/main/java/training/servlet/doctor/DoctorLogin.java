@@ -50,8 +50,8 @@ public class DoctorLogin extends HttpServlet {
 		Doctor doctor=  (Doctor) ( query).getSingleResult();
 		
 		if(doctor!= null) {
-			HttpSession httpSession = req.getSession();
-			httpSession.setAttribute("doctor", doctor);
+			HttpSession httpSession = req.getSession(); // creating session
+			httpSession.setAttribute("doctorObj", doctor); // setting value of doctor obj in session
 			session.close();
 			resp.sendRedirect("doctorWelcomePage.jsp");
 		}

@@ -1,5 +1,5 @@
 <%@page import="training.hib.dao.DoctorPatientDAO"%>
- <% DoctorPatientDAO.insertData(); %> 
+<%-- <% DoctorPatientDAO.insertData(); %> --%>
 
 <html>
 <body>

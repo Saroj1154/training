@@ -1,0 +1,2 @@
+1. Register Doctor
+2. Login to doctor(login exists) update to using email id and Password

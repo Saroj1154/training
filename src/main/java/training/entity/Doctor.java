@@ -1,6 +1,8 @@
 package training.entity;
 
 
+import org.hibernate.validator.constraints.Length;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,15 +19,16 @@ public class Doctor {
     @Column(length = 255)
     private String doctorName;
     @Column(length = 255)
-    
+	private String doctorAddress;
 
-    private String doctorAddress;
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "doctor_patient_mapping",
-//            joinColumns = @JoinColumn(name = "doctorId"),
-//            inverseJoinColumns =@JoinColumn(name = "patientId")
-//    )
+	@Column(length = 255)
+	private String doctorEmail;
+
+
+	@Column(length = 255)
+	private String doctorPassword;
+
+
     @ManyToMany(mappedBy = "doctors")
    private Set<Patient>patients=new HashSet();
 	public Integer getDoctorId() {
@@ -46,6 +49,23 @@ public class Doctor {
 	public void setDoctorAddress(String doctorAddress) {
 		this.doctorAddress = doctorAddress;
 	}
+
+	public String getDoctorEmail() {
+		return doctorEmail;
+	}
+
+	public void setDoctorEmail(String doctorEmail) {
+		this.doctorEmail = doctorEmail;
+	}
+
+	public String getDoctorPassword() {
+		return doctorPassword;
+	}
+
+	public void setDoctorPassword(String doctorPassword) {
+		this.doctorPassword = doctorPassword;
+	}
+
 	public Set<Patient> getPatients() {
 		return patients;
 	}

@@ -22,7 +22,10 @@ public class DoctorPatientDAO {
 		Doctor doctor = new Doctor();
 		doctor.setDoctorName("Santosh");
 		doctor.setDoctorAddress("Haltom");
-doctorSet.add(doctor);
+		doctor.setDoctorEmail("S@gmail.com");
+		doctor.setDoctorPassword("S1234");
+
+		//doctorSet.add(doctor);
 
 		Set<Patient> patientSet = new HashSet();
 
@@ -35,6 +38,7 @@ doctorSet.add(doctor);
 		patient.setDoctors(doctorSet);
 
 		doctor.setPatients(patientSet);
+
 		try {
 
 			tx = session.beginTransaction();
@@ -51,6 +55,15 @@ doctorSet.add(doctor);
 		}
 	}
 
+	public static void addDoctor(Doctor doctor) {
+		SessionFactory sessionFactory = Utility.sessionFactoryDemo();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(doctor);
+		tx.commit();
+		session.close();
+	}
+
 	public static void addPatient(Patient patient) {
 		SessionFactory sessionFactory = Utility.sessionFactoryDemo();
 		Session session = sessionFactory.openSession();
@@ -59,7 +72,8 @@ doctorSet.add(doctor);
 		tx.commit();
 		session.close();
 	}
-	
+
+
 	public static Set<Patient> getPatientListByDoctor(Doctor doctor){
 		System.out.println(doctor);
 		SessionFactory sessionFactory = Utility.sessionFactoryDemo();

@@ -43,8 +43,8 @@ public class DoctorLogin extends HttpServlet {
 		Root<Doctor> doctorRoot = criteriaQuery.from(Doctor.class);
 
 		criteriaQuery.select(doctorRoot).distinct(true).where(
-				criteriaBuilder.equal(doctorRoot.get("doctorName"), req.getParameter("doctorName")),
-				criteriaBuilder.equal(doctorRoot.get("doctorAddress"), req.getParameter("doctorAddress")));
+				criteriaBuilder.equal(doctorRoot.get("doctorEmail"), req.getParameter("doctorEmail")),
+				criteriaBuilder.equal(doctorRoot.get("doctorPassword"), req.getParameter("doctorPassword")));
 		// fetch the hospital data
 		Query query = (Query) session.createQuery(criteriaQuery);
 		Doctor doctor=  (Doctor) ( query).getSingleResult();

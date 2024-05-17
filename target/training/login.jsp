@@ -12,8 +12,8 @@
 </head>
 <body>
 <form action="drLogin" method="post">
-    User Name: <input type="text" name="doctorName"/><br><br>
-    Password: <input type="text" name="doctorAddress"/><br><br>
+    User Name: <input type="text" name="doctorEmail"/><br><br>
+    Password: <input type="text" name="doctorPassword"/><br><br>
     <input type="submit" value="Login"/>
 
 </form>
